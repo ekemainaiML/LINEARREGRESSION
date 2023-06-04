@@ -1,18 +1,7 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from app.model import predict_pipeline
+from app.model import DataIn, PredictionOut, predict_pipeline, __version__
 
-__version__ = "0.1.0"
 app = FastAPI()
-
-class DataIn(BaseModel):
-    Iy: float
-    PF: float
-    e:  float
-    dIf: float
-    
-class PredictionOut(BaseModel):
-    If: float
 
 
 @app.get("/")
