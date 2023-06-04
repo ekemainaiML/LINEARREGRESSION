@@ -1,10 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from app.model.model import predict_pipeline
+from app.model import predict_pipeline
 
 __version__ = "0.1.0"
 app = FastAPI()
-
 
 class DataIn(BaseModel):
     Iy: float
@@ -23,5 +22,5 @@ def home():
 
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: DataIn):
-    excitationCurrent = predict_pipeline(payload)
-    return {"excitationCurrent": excitationCurrent}
+    If = predict_pipeline([[payload.Iy, payload.PF, payload.e, payload.dIf]])
+    return {"If": If}
