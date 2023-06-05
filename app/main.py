@@ -11,10 +11,5 @@ def home():
 
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: DataIn):
-    payload = payload.__dict__()
-    Iy = payload["Iy"]
-    PF = payload["PF"]
-    e = payload["e"]
-    dIf = payload["dIf"]
-    If = predict_pipeline([[Iy, PF, e, dIf]])
+    If = predict_pipeline([[payload.Iy, payload.PF, payload.e, payload.dIf]])
     return If
