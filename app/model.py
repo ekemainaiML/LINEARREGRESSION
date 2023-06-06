@@ -20,5 +20,5 @@ class PredictionOut(BaseModel):
     If: float
 
 def predict_pipeline(data):
-    pred = model.predict([data])
+    pred = model.predict(data)
     return pred

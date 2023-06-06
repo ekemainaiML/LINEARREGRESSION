@@ -12,4 +12,4 @@ def home():
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: DataIn):
     If = predict_pipeline([[payload.Iy, payload.PF, payload.e, payload.dIf]])
-    return If
+    return {"If": If}
